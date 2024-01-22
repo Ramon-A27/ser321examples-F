@@ -41,7 +41,8 @@ task runAppAgain(type: JavaExec) {
   }
 }
 
-// task that runs the Fraction Main which does not use arguments: gradle runFraction
+// task that runs the Fraction Main which now uses 2 arguments: 
+// Ex: gradle runFraction --args '4 7'
 task runFraction(type: JavaExec) {
   group 'Fraction Tasks'
   description 'Tasks which runs Fraction with 2 arguments'
@@ -52,8 +53,32 @@ task runFraction(type: JavaExec) {
   
 }
 
+// task that's basically runFraction but with two parameters
+// kinda like runAppAgain, can run with 2, 1, or no arguments
+// Ex: gradle runFrac -Pdenom=5 -Pnum=2
+// Ex2: gradle runFrac -Pdenom=8
+// Ex3: gradle runFrac -Pnum=7
+task runFrac(type: JavaExec) {
+  group 'Fraction Tasks'
+  description 'Task which runs Fraction with default parameters or given values'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'Fraction'
+
+  // requires 2 args, will work with no numerator or no args at all
+  if (project.hasProperty("denom") && project.hasProperty("num")) {
+    args(project.getProperty('num'), project.getProperty('denom'));
+  } else if (project.hasProperty("denom")){
+    args(1, project.getProperty('denom'));
+  } else if (project.hasProperty("num")){
+    args(project.getProperty('num'), 3);
+  }
+}
+
+
 // Try:
-// 1. Change Fraction.main so it accepts 2 arguments
+// 1. Change Fraction.main so it accepts 2 arguments #DONE
 // 2. Create a new gradle tasks that accepts two arguments and 
 //    can be called as: gradle runFrac -Pdenom=4 -Pnum=3 or as gradle runFrac -Pnum=3 -Pdenom=4 , also make sure it can run with only 1 or no arguments
 
