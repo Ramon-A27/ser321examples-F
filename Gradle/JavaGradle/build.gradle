@@ -44,11 +44,15 @@ task runAppAgain(type: JavaExec) {
 // task that runs the Fraction Main which does not use arguments: gradle runFraction
 task runFraction(type: JavaExec) {
   group 'Fraction Tasks'
-  description 'Tasks which runs Fraction with no arguments'
+  description 'Tasks which runs Fraction with 2 arguments'
 
   classpath = sourceSets.main.runtimeClasspath
 
   main = 'Fraction'
+
+  // default arguments
+  args '3'
+  args '1'
 }
 
 // Try:
