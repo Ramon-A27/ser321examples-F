@@ -39,7 +39,7 @@ task runAppAgain(type: JavaExec) {
   } else if (project.hasProperty("num1")){
     args(project.getProperty('num1'), 2);
   } else if (project.hasProperty("num2")){
-    args(1, project.getProperty('num1'));
+    args(1, project.getProperty('num2'));
   }  else {
     args(1, 2);
   }
