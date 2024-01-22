@@ -53,6 +53,10 @@ public class Fraction {
                System.out.println("Arguments must both be integers.");
                System.exit(1);
             }
+            if (y == 0) {
+               System.out.println("Denominator cannot be 0.");
+               System.exit(1);
+            }
             frac.setNumerator(x);
             frac.setDenominator(y);
          } else {
