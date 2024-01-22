@@ -76,7 +76,7 @@ task runFrac(type: JavaExec) {
   } else if (project.hasProperty("num")){
     args(project.getProperty('num'), 3);
   } else {
-    args(1,2);
+    args("1", "2");
   }
 }
 
