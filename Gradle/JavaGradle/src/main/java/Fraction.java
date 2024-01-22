@@ -48,7 +48,7 @@ public class Fraction {
             int y = 0;
             try {
                x = Integer.parseInt(args[0]);
-               y = Integer.parseInt(args[0]);
+               y = Integer.parseInt(args[1]);
             } catch (Exception e) {
                System.out.println("Arguments must both be integers.");
                System.exit(1);
