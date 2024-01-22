@@ -40,6 +40,8 @@ task runAppAgain(type: JavaExec) {
     args(project.getProperty('num1'), 2);
   } else if (project.hasProperty("num2")){
     args(1, project.getProperty('num1'));
+  }  else {
+    args(1, 2);
   }
 }
 
@@ -75,8 +77,6 @@ task runFrac(type: JavaExec) {
     args(1, project.getProperty('denom'));
   } else if (project.hasProperty("num")){
     args(project.getProperty('num'), 3);
-  } else {
-    args("1", "2");
   }
 }
 
